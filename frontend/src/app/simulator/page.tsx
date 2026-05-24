@@ -2,6 +2,32 @@
 
 import { useState } from 'react';
 
+const SliderWithTooltip = ({ label, value, onChange }: { label: string; value: number; onChange: (val: number) => void }) => {
+  const percent = value * 100;
+
+  return (
+    <div className="simulator-control">
+      <div className="simulator-label">
+        <span>{label}</span>
+        <span>{Math.round(percent)}%</span>
+      </div>
+      <div className="slider-container" style={{ position: 'relative', marginTop: 8 }}>
+        <input 
+          type="range" min="0" max="100" value={Math.round(percent)}
+          onChange={e => onChange(parseInt(e.target.value) / 100)}
+          className="simulator-slider" 
+        />
+        <div 
+          className="slider-tooltip"
+          style={{ left: `calc(${percent}% + (${8 - percent * 0.16}px))` }}
+        >
+          {Math.round(percent)}%
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function SimulatorPage() {
   const [params, setParams] = useState({
     portStatus: true,
@@ -79,35 +105,23 @@ export default function SimulatorPage() {
               />
             </div>
 
-            <div className="simulator-control">
-              <div className="simulator-label">
-                <span>Weather Severity</span>
-                <span>{Math.round(params.weatherSeverity * 100)}%</span>
-              </div>
-              <input type="range" min="0" max="100" value={params.weatherSeverity * 100}
-                onChange={e => setParams(p => ({ ...p, weatherSeverity: parseInt(e.target.value) / 100 }))}
-                className="simulator-slider" />
-            </div>
+            <SliderWithTooltip 
+              label="Weather Severity" 
+              value={params.weatherSeverity} 
+              onChange={v => setParams(p => ({ ...p, weatherSeverity: v }))} 
+            />
 
-            <div className="simulator-control">
-              <div className="simulator-label">
-                <span>Strike Probability</span>
-                <span>{Math.round(params.strikeProbability * 100)}%</span>
-              </div>
-              <input type="range" min="0" max="100" value={params.strikeProbability * 100}
-                onChange={e => setParams(p => ({ ...p, strikeProbability: parseInt(e.target.value) / 100 }))}
-                className="simulator-slider" />
-            </div>
+            <SliderWithTooltip 
+              label="Strike Probability" 
+              value={params.strikeProbability} 
+              onChange={v => setParams(p => ({ ...p, strikeProbability: v }))} 
+            />
 
-            <div className="simulator-control">
-              <div className="simulator-label">
-                <span>Congestion Level</span>
-                <span>{Math.round(params.congestionLevel * 100)}%</span>
-              </div>
-              <input type="range" min="0" max="100" value={params.congestionLevel * 100}
-                onChange={e => setParams(p => ({ ...p, congestionLevel: parseInt(e.target.value) / 100 }))}
-                className="simulator-slider" />
-            </div>
+            <SliderWithTooltip 
+              label="Congestion Level" 
+              value={params.congestionLevel} 
+              onChange={v => setParams(p => ({ ...p, congestionLevel: v }))} 
+            />
 
             <button className="btn btn-primary" onClick={simulate} disabled={loading}
               style={{ width: '100%', padding: '10px', marginTop: 12, fontSize: 14 }}>

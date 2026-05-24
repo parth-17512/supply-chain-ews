@@ -1,4 +1,4 @@
-require('dotenv').config({ path: require('path').join(__dirname, '..', '.env.example') });
+require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
 const mongoose = require('mongoose');
 const Shipment = require('../models/Shipment');
 const Alert = require('../models/Alert');
@@ -88,7 +88,7 @@ async function seedDatabase() {
         status,
         eta: new Date(Date.now() + randomBetween(1, 30) * 86400000),
         delayHours: status === 'delayed' ? randomBetween(6, 72) : 0,
-        cargo: { type: randomFrom(CARGO_TYPES), weight: randomBetween(100, 50000), value: randomBetween(10000, 5000000) },
+        cargo: { cargoType: randomFrom(CARGO_TYPES), weight: randomBetween(100, 50000), value: randomBetween(10000, 5000000) },
         riskScore,
         riskFactors: [
           { factor: 'weather', weight: 0.2, score: randomBetween(0, 100) },

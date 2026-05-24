@@ -492,3 +492,67 @@ html, body {
 .risk-moderate { color: #f59e0b; }
 .risk-low { color: var(--success); }
 .risk-minimal { color: var(--accent-teal); }
+
+/* ============================================================
+   LOADING SKELETONS (shimmer effect)
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-card-hover) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-text  { height: 12px; margin-bottom: 8px; }
+.skeleton-title { height: 20px; width: 60%; margin-bottom: 12px; }
+.skeleton-chart { height: 220px; width: 100%; border-radius: var(--radius); }
+.skeleton-card  { height: 80px; border-radius: var(--radius); margin-bottom: 12px; }
+.skeleton-row   { height: 36px; border-radius: var(--radius-sm); margin-bottom: 6px; }
+
+/* ============================================================
+   PAGE TRANSITIONS
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply to every page's root div so all routes get the animation */
+.page-content > div {
+  animation: slideUp 0.28s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.slider-container .slider-tooltip {
+  opacity: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  top: -28px;
+  transform: translateX(-50%);
+  background: var(--accent-cyan);
+  color: #000;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+.slider-container:hover .slider-tooltip,
+.simulator-slider:active + .slider-tooltip {
+  opacity: 1;
+}

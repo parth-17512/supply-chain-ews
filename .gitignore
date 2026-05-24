@@ -5,6 +5,8 @@ __pycache__/
 .venv/
 venv/
 env/
+myvenv/
+venv_311/
 
 # Environment
 .env
@@ -43,3 +45,10 @@ coverage/
 *.drawio.png
 *.pdf
 *.pptx
+
+# Docker
+.dockerignore
+
+# ML saved models directory (generated at runtime)
+ml-service/saved_models/
+

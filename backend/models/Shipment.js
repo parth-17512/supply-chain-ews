@@ -21,9 +21,9 @@ const shipmentSchema = new mongoose.Schema({
   actualArrival: Date,
   delayHours: { type: Number, default: 0 },
   cargo: {
-    type: String,
-    weight: Number,
-    value: Number
+    cargoType: { type: String, default: 'General' },
+    weight: { type: Number, default: 0 },
+    value: { type: Number, default: 0 }
   },
   riskScore: { type: Number, min: 0, max: 100, default: 0 },
   riskFactors: [{

@@ -43,6 +43,10 @@ export const api = {
     return fetchAPI(`/news${query ? `?${query}` : ''}`);
   },
 
+  // Live Data
+  getLiveWeather: () => fetchAPI('/live/weather'),
+  getLiveCongestion: () => fetchAPI('/live/congestion'),
+
   // System Health
   getHealth: () => fetchAPI('/health'),
 

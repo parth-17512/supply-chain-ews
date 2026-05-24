@@ -37,13 +37,13 @@ export default function MapInner({ data }: { data: HeatmapPoint[] }) {
         <CircleMarker
           key={i}
           center={[point.lat, point.lng]}
-          radius={Math.max(8, point.avgRisk / 5)}
+          radius={Math.max(10, point.avgRisk / 3)}
           pathOptions={{
             fillColor: getColor(point.avgRisk),
-            color: getColor(point.avgRisk),
-            fillOpacity: 0.5,
+            color: '#ffffff',
+            fillOpacity: 0.85,
             weight: 2,
-            opacity: 0.8,
+            opacity: 1,
           }}
         >
           <Tooltip>
