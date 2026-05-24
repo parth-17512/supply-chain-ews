@@ -82,6 +82,17 @@ npm run dev
 
 Create `.env` files in each service directory. See `.env.example` files for reference.
 
+## 🌍 Deployment
+
+This project is deployed across multiple cloud platforms for a robust, decoupled architecture:
+
+| Component | Platform | Details |
+|-----------|----------|---------|
+| **Frontend** | [Vercel](https://vercel.com/) | Deployed as a Next.js application. Uses `NEXT_PUBLIC_API_URL` to communicate with the Backend. |
+| **Backend API** | [Render](https://render.com/) | Deployed as a Node Web Service. Requires MongoDB and ML Service URLs in its environment variables. |
+| **ML Service** | [Render](https://render.com/) | Deployed as a Python Web Service (`uvicorn`). Exposes endpoints for risk prediction and NLP analysis. |
+| **Database** | [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) | Cloud-hosted MongoDB cluster accessible by the Render Backend. |
+
 ## 👥 Team
 
 | Team Member | Role & Responsibilities |
