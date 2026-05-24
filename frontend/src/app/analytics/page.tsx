@@ -197,7 +197,7 @@ export default function AnalyticsPage() {
                 <XAxis dataKey="predicted" name="Predicted" label={{ value: 'Predicted', position: 'insideBottom', offset: -4, fill: '#5a6480', fontSize: 11 }} tick={{ fontSize: 10, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                 <YAxis dataKey="actual" name="Actual" label={{ value: 'Actual', angle: -90, position: 'insideLeft', fill: '#5a6480', fontSize: 11 }} tick={{ fontSize: 10, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                 <ZAxis dataKey="volume" range={[30, 100]} />
-                <Tooltip contentStyle={ChartTooltipStyle} cursor={{ strokeDasharray: '3 3', stroke: 'rgba(255,255,255,0.1)' }} formatter={(v: any, name: string) => [v, name]} />
+                <Tooltip contentStyle={ChartTooltipStyle} cursor={{ strokeDasharray: '3 3', stroke: 'rgba(255,255,255,0.1)' }} formatter={(v: any, name: any) => [v, name]} />
                 <Scatter data={scatterData} fill="#00d4ff" fillOpacity={0.7} />
               </ScatterChart>
             </ResponsiveContainer>
