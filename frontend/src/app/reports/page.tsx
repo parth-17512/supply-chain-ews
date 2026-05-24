@@ -287,7 +287,7 @@ export default function ReportsPage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" horizontal={false} />
                   <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                   <YAxis dataKey="route" type="category" tick={{ fontSize: 11, fill: '#8b95b0' }} axisLine={false} tickLine={false} width={130} />
-                  <Tooltip contentStyle={ChartTooltipStyle} formatter={(v: number) => [`${v}`, 'Risk Score']} />
+                  <Tooltip contentStyle={ChartTooltipStyle} formatter={(v: any) => [`${v}`, 'Risk Score']} />
                   <Bar dataKey="riskScore" name="Risk Score" fill="url(#barGradient)" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
