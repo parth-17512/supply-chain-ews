@@ -140,7 +140,7 @@ export default function AnalyticsPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
                 <XAxis dataKey="range" tick={{ fontSize: 10, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#5a6480' }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={ChartTooltipStyle} formatter={(v: number) => [v, 'Routes']} />
+                <Tooltip contentStyle={ChartTooltipStyle} formatter={(v: any) => [v, 'Routes']} />
                 <Bar dataKey="count" name="Routes" radius={[4, 4, 0, 0]}>
                   {riskDistribution.map((_, i) => (
                     <Cell key={i} fill={RISK_COLORS[i]} />
@@ -197,7 +197,7 @@ export default function AnalyticsPage() {
                 <XAxis dataKey="predicted" name="Predicted" label={{ value: 'Predicted', position: 'insideBottom', offset: -4, fill: '#5a6480', fontSize: 11 }} tick={{ fontSize: 10, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                 <YAxis dataKey="actual" name="Actual" label={{ value: 'Actual', angle: -90, position: 'insideLeft', fill: '#5a6480', fontSize: 11 }} tick={{ fontSize: 10, fill: '#5a6480' }} axisLine={false} tickLine={false} />
                 <ZAxis dataKey="volume" range={[30, 100]} />
-                <Tooltip contentStyle={ChartTooltipStyle} cursor={{ strokeDasharray: '3 3', stroke: 'rgba(255,255,255,0.1)' }} formatter={(v: number, name: string) => [v, name]} />
+                <Tooltip contentStyle={ChartTooltipStyle} cursor={{ strokeDasharray: '3 3', stroke: 'rgba(255,255,255,0.1)' }} formatter={(v: any, name: string) => [v, name]} />
                 <Scatter data={scatterData} fill="#00d4ff" fillOpacity={0.7} />
               </ScatterChart>
             </ResponsiveContainer>
