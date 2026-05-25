@@ -7,6 +7,8 @@
 ![Stack](https://img.shields.io/badge/stack-MERN%20%2B%20Python-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+**🔗 Live Demo:** [https://supply-chain-ews.vercel.app/](https://supply-chain-ews.vercel.app/)
+
 ---
 
 ## 🏗️ Architecture
